@@ -1,11 +1,11 @@
 Summary:	GNOME disk utility
 Name:		gnome-disk-utility
-Version:	3.6.0
+Version:	3.6.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	644323ef6e543220c6cee625e0a33929
+# Source0-md5:	ff6e0a50a3a6aa9a8d9aa8b19d304485
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+3-devel
