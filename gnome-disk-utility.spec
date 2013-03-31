@@ -1,11 +1,11 @@
 Summary:	GNOME disk utility
 Name:		gnome-disk-utility
-Version:	3.6.1
+Version:	3.8.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	ff6e0a50a3a6aa9a8d9aa8b19d304485
+Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	983402ac15c51657f38a078323ad18f0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+3-devel
@@ -80,4 +80,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_mandir}/man1/gnome-disk-image-mounter.1*
 %{_mandir}/man1/gnome-disks.1*
+
+# TODO: move to subpkg
+%attr(755,root,root) %{_libdir}/gnome-settings-daemon-3.0/libgdu-sd.so
+%{_libdir}/gnome-settings-daemon-3.0/gdu-sd-plugin.gnome-settings-plugin
+%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.gdu-sd.gschema.xml
 
