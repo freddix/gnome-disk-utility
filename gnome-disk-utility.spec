@@ -1,7 +1,7 @@
 Summary:	GNOME disk utility
 Name:		gnome-disk-utility
 Version:	3.8.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.8/%{name}-%{version}.tar.xz
@@ -24,6 +24,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 gnome-disk-utility provides libraries and applications for dealing
 with storage devices.
+
+%package -n gnome-settings-daemon-disks
+Summary:	GNOME daemon - Disks plugin
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
+Requires:	gnome-settings-daemon
+
+%description -n gnome-settings-daemon-disks
+GNOME daemon - Disks plugin.
 
 %prep
 %setup -q
@@ -81,7 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gnome-disk-image-mounter.1*
 %{_mandir}/man1/gnome-disks.1*
 
-# TODO: move to subpkg
+%files -n gnome-settings-daemon-disks
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gnome-settings-daemon-3.0/libgdu-sd.so
 %{_libdir}/gnome-settings-daemon-3.0/gdu-sd-plugin.gnome-settings-plugin
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.gdu-sd.gschema.xml
