@@ -1,18 +1,20 @@
 Summary:	GNOME disk utility
 Name:		gnome-disk-utility
-Version:	3.8.2
-Release:	2
+Version:	3.10.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	505acafd74fb7cc81065b8b4a1cff868
+Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	d89ad8a648a2003266737c00e36c40e6
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+3-devel
+BuildRequires:	gtk+3-devel >= 3.10.0
 BuildRequires:	intltool
 BuildRequires:	libpwquality-devel
 BuildRequires:	libtool
+BuildRequires:	systemd-devel
 BuildRequires:	udisks2-devel
+BuildRequires:	xz-devel
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
 Requires(post,postun):	glib-gio-gsettings
 Requires(post,postun):	hicolor-icon-theme
@@ -29,7 +31,7 @@ with storage devices.
 Summary:	GNOME daemon - Disks plugin
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnome-settings-daemon
+Requires:	gnome-settings-daemon >= 1:3.10.0
 
 %description -n gnome-settings-daemon-disks
 GNOME daemon - Disks plugin.
@@ -38,7 +40,7 @@ GNOME daemon - Disks plugin.
 %setup -q
 
 # kill gnome common deps
-sed -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
+%{__sed} -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
     -i -e 's/GNOME_MAINTAINER_MODE_DEFINES//g'	\
     -i -e 's/GNOME_COMMON_INIT//g'		\
     -i -e 's/GNOME_CXX_WARNINGS.*//g'		\
@@ -62,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/en@shaw
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/en@shaw
 
 %find_lang %{name}
 
