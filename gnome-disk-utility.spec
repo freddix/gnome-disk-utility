@@ -1,14 +1,14 @@
 Summary:	GNOME disk utility
 Name:		gnome-disk-utility
-Version:	3.10.0
+Version:	3.12.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	d89ad8a648a2003266737c00e36c40e6
+Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	1cd6f0b8e434f35dc9dd18e1cd082be4
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	intltool
 BuildRequires:	libpwquality-devel
 BuildRequires:	libtool
@@ -31,7 +31,7 @@ with storage devices.
 Summary:	GNOME daemon - Disks plugin
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnome-settings-daemon >= 1:3.10.0
+Requires:	gnome-settings-daemon >= 1:3.12.0
 
 %description -n gnome-settings-daemon-disks
 GNOME daemon - Disks plugin.
@@ -65,6 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/en@shaw
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gnome-settings-daemon-3.0/libgdu-sd.la
 
 %find_lang %{name}
 
@@ -85,7 +86,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-disk-image-mounter
 %attr(755,root,root) %{_bindir}/gnome-disks
 %{_datadir}/glib-2.0/schemas/org.gnome.Disks.gschema.xml
-%{_datadir}/gnome-disk-utility
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/*/*.png
 %{_iconsdir}/hicolor/*/*/*.svg
