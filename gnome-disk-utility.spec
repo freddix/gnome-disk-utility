@@ -1,11 +1,11 @@
 Summary:	GNOME disk utility
 Name:		gnome-disk-utility
-Version:	3.12.0
+Version:	3.12.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://download.gnome.org/sources/gnome-disk-utility/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	1cd6f0b8e434f35dc9dd18e1cd082be4
+# Source0-md5:	93bba15aad7bd64f762f6914db2eba16
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+3-devel >= 3.12.0
